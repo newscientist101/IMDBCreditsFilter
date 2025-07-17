@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMDB Profile Filter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>IMDB Profile Filter</h1>
+    <form id="imdb-form">
+        <label for="imdb-url">IMDB Profile URL:</label>
+        <input type="text" id="imdb-url" name="imdb-url" required pattern="^https?://(www\.)?imdb\.com/name/nm\d{7,8}/?$">
+        <button type="submit">Get Credits</button>
+        <span id="url-error" style="color: red; display: none;">Invalid IMDB Profile URL</span>
+    </form>
+    <div class="filter-options">
+        <h3>Filter by:</h3>
+        <label for="appearances">Number of Appearances/Episodes:</label>
+        <input type="range" id="appearances" name="appearances" min="1" max="100" value="1">
+        <span id="appearances-value">1</span>
+    </div>
+    <div id="results"></div>
+    <script src="script.js"></script>
+</body>
+</html>

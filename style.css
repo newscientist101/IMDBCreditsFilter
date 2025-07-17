@@ -1,0 +1,17 @@
+body {
+    font-family: sans-serif;
+    margin: 20px;
+}
+
+#imdb-form {
+    margin-bottom: 20px;
+}
+
+.filter-options {
+    margin-bottom: 20px;
+}
+
+#results {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
