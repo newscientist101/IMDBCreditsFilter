@@ -6,17 +6,17 @@ document.getElementById('imdb-form').addEventListener('submit', function(event) 
     const credits = doc.querySelectorAll('.filmo-category-section');
     const results = document.getElementById('results');
     results.innerHTML = '';
-    credits.forEach(credit => {
-        results.appendChild(credit);
+    Array.from(credits).forEach(credit => {
+        results.appendChild(credit.cloneNode(true));
     });
     filterCredits();
 });
 
 function filterCredits() {
     const appearances = parseInt(document.getElementById('appearances').value, 10);
-    const credits = document.querySelectorAll('.filmo-row');
+    const credits = document.getElementById('results').querySelectorAll('.filmo-row');
 
-    credits.forEach(credit => {
+    Array.from(credits).forEach(credit => {
         const episodeCountText = credit.innerText.match(/\((\d+)\s+episode/);
         const episodeCount = episodeCountText ? parseInt(episodeCountText[1], 10) : 1;
 
