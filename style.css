@@ -5,6 +5,8 @@ body {
 
 #imdb-form {
     margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
 }
 
 .filter-options {

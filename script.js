@@ -1,30 +1,15 @@
 document.getElementById('imdb-form').addEventListener('submit', function(event) {
     event.preventDefault();
-    const urlInput = document.getElementById('imdb-url');
-    const url = urlInput.value;
-    const urlError = document.getElementById('url-error');
-
-    if (!urlInput.checkValidity()) {
-        urlError.style.display = 'block';
-        return;
-    }
-    urlError.style.display = 'none';
-
-    fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(url)}`)
-        .then(response => {
-            if (response.ok) return response.json();
-            throw new Error('Network response was not ok.');
-        })
-        .then(data => {
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(data.contents, 'text/html');
-            const credits = doc.querySelectorAll('.filmo-category-section');
-            const results = document.getElementById('results');
-            credits.forEach(credit => {
-                results.appendChild(credit);
-            });
-            filterCredits();
-        });
+    const html = document.getElementById('imdb-html').value;
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, 'text/html');
+    const credits = doc.querySelectorAll('.filmo-category-section');
+    const results = document.getElementById('results');
+    results.innerHTML = '';
+    credits.forEach(credit => {
+        results.appendChild(credit);
+    });
+    filterCredits();
 });
 
 function filterCredits() {

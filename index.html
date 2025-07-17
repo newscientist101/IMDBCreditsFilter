@@ -9,10 +9,9 @@
 <body>
     <h1>IMDB Profile Filter</h1>
     <form id="imdb-form">
-        <label for="imdb-url">IMDB Profile URL:</label>
-        <input type="text" id="imdb-url" name="imdb-url" required pattern="^https?://(www\.)?imdb\.com/name/nm\d{7,8}/?$">
+        <label for="imdb-html">Paste IMDB Profile HTML:</label>
+        <textarea id="imdb-html" name="imdb-html" rows="10" cols="80" required></textarea>
         <button type="submit">Get Credits</button>
-        <span id="url-error" style="color: red; display: none;">Invalid IMDB Profile URL</span>
     </form>
     <div class="filter-options">
         <h3>Filter by:</h3>
